@@ -15,26 +15,43 @@ function MainLayout() {
             </ButtonNav>
           </li>
           <li>
-            <ButtonNav active={location.pathname.startsWith("/artists")} link={"artists"}>Artists</ButtonNav>
+            <ButtonNav
+              active={location.pathname.startsWith("/artists")}
+              link={"artists"}
+            >
+              Artists
+            </ButtonNav>
           </li>
           <li className="relative">
             <div className="mt-[-10px]">
               <img
                 src="/1png.png"
                 width={180}
-                style={{ filter: "grayscale(100%)", minWidth: "100px" }}
+                style={{ filter: "grayscale(100%)", minWidth: "100px", paddingLeft: "4px" }}
               />
             </div>
           </li>
           <li>
-            <ButtonNav active={location.pathname.startsWith("/songs")} link={"songs"}>Songs</ButtonNav>
+            <ButtonNav
+              active={location.pathname.startsWith("/songs")}
+              link={"songs"}
+            >
+              Songs
+            </ButtonNav>
           </li>
           <li>
-            <ButtonNav active={location.pathname === "/about"} link={"about"}>About</ButtonNav>
+            <ButtonNav active={location.pathname === "/about"} link={"about"}>
+              About
+            </ButtonNav>
           </li>
         </ul>
       </header>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
+      <footer className="bg-zinc-800 flex flex-col items-center">
+        Footer Info
+      </footer>
     </div>
   );
 }
