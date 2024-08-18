@@ -1,17 +1,19 @@
 import { useState } from "react";
-import SearchBoton from "../components/Form/SearchBoton";
-import SearchControl from "../components/Form/SearchControl";
+import SearchBoton from "../../components/Form/SearchBoton";
+import SearchControl from "../../components/Form/SearchControl";
 import axios from "axios";
-import { checkToken } from "../utils/auth";
-import NoResults from "../components/NoResults";
+import { checkToken } from "../../utils/auth";
+import NoResults from "../../components/NoResults";
+import ArtistCard from "../../components/ArtistCard";
 
 function Artists() {
   const [query, setQuery] = useState("");
   const [artists, setArtists] = useState([]);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(20);
   const [offset, setOffset] = useState(0);
+  const [total, setTotal] = useState(null);
 
-  const SearchArtists = async () => {
+  const searchArtists = async () => {
     if (query) {
       const token = await checkToken();
       axios
@@ -32,6 +34,7 @@ function Artists() {
         .then((res) => {
           console.log(res.data);
           setArtists(res.data.artists.items);
+          setTotal(res.data.artists.total);
         });
     }
   };
@@ -46,22 +49,18 @@ function Artists() {
             setQuery={setQuery}
           />
         </div>
-        <SearchBoton handleSearch={SearchArtists} />
+        <SearchBoton handleSearch={searchArtists} />
       </div>
-      <div className="flex justify-center">
-        <div className="flex flex-col sm:items-start w-10/12">
-          {artists.length > 0 ? (
-            <div>
-              {artists.map((e, i) => (
-                <div key={i}>
-                    <img src={e.images[0]?.url} height={640} width={640} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <NoResults />
-          )}
-        </div>
+      <div>
+        {artists.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-0">
+            {artists.map((e, i) => (
+              <ArtistCard key={i} item={e} />
+            ))}
+          </div>
+        ) : (
+          <NoResults />
+        )}
       </div>
     </div>
   );

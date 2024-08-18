@@ -7,7 +7,7 @@ function MainLayout() {
 
   return (
     <div>
-      <header className="flex justify-center mb-20 mt-2">
+      <header className="flex justify-center mb-2 sm:mb-20 mt-2">
         <ul className="flex justify-center items-center h-14 sm:border-solid sm:border-white sm:border-2 sm:rounded-full max-w-3xl">
           <li>
             <ButtonNav active={location.pathname === "/"} link={""}>

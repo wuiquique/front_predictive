@@ -1,9 +1,10 @@
 import type { RouteObject } from "react-router-dom";
 import Home from "../pages/Home";
 import MainLayout from "../layouts/MainLayout";
-import Artists from "../pages/Artists";
+import Artists from "../pages/Artists/Artists";
 import Songs from "../pages/Songs";
 import About from "../pages/About";
+import ArtistDetail from "../pages/Artists/Detail";
 
 const routes: RouteObject[] = [
   {
@@ -16,6 +17,10 @@ const routes: RouteObject[] = [
       {
         path: "/artists",
         element: <Artists />,
+      },
+      {
+        path: "/artists/:id",
+        element: <ArtistDetail />,
       },
       {
         path: "/songs",
