@@ -21,6 +21,7 @@ function ArtistDetail() {
         },
       })
       .then((res) => {
+        // console.log(res.data)
         setArtist(res.data);
       });
   };
@@ -35,7 +36,7 @@ function ArtistDetail() {
         },
       })
       .then((res) => {
-        console.log(res.data.tracks);
+        // console.log(res.data.tracks);
         setTracks(res.data.tracks);
       });
   };
@@ -63,6 +64,11 @@ function ArtistDetail() {
             {artist?.followers?.total} Follower
             {artist?.followers?.total > 1 ? "s" : null}
           </h2>
+          <a className="mt-2 w-44 sm:w-56 h-10 flex justify-center items-center bg-[#1db954] rounded-full text-sm sm:text-base" href={artist?.external_urls?.spotify}>
+            <img className="w-[21px] sm:w-[24px]" src="/Spotify_Icon_RGB_White.png" />
+            &nbsp;
+            LISTEN ON SPOTIFY
+          </a>
         </div>
       </div>
 
