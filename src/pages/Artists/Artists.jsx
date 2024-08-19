@@ -9,9 +9,6 @@ import ArtistCard from "../../components/ArtistCard";
 function Artists() {
   const [query, setQuery] = useState("");
   const [artists, setArtists] = useState([]);
-  const [limit, setLimit] = useState(20);
-  const [offset, setOffset] = useState(0);
-  const [total, setTotal] = useState(null);
 
   const searchArtists = async () => {
     if (query) {
@@ -22,9 +19,9 @@ function Artists() {
             query +
             "&type=artist" +
             "&limit=" +
-            limit +
+            20 +
             "&offset=" +
-            offset,
+            0,
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -34,7 +31,6 @@ function Artists() {
         .then((res) => {
           console.log(res.data);
           setArtists(res.data.artists.items);
-          setTotal(res.data.artists.total);
         });
     }
   };
