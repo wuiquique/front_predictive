@@ -1,10 +1,10 @@
 import { useState } from "react";
-import SearchControl from "../components/Form/SearchControl";
-import SearchBoton from "../components/Form/SearchBoton";
-import { checkToken } from "../utils/auth";
+import SearchControl from "../../components/Form/SearchControl";
+import SearchBoton from "../../components/Form/SearchBoton";
+import { checkToken } from "../../utils/auth";
 import axios from "axios";
-import NoResults from "../components/NoResults";
-import TrackCard from "../components/TrackCard";
+import NoResults from "../../components/NoResults";
+import TrackCard from "../../components/TrackCard";
 
 function Songs() {
   const [query, setQuery] = useState("");
@@ -19,7 +19,7 @@ function Songs() {
             query +
             "&type=track" +
             "&limit=" +
-            40 +
+            30 +
             "&offset=" +
             0,
           {
@@ -45,7 +45,7 @@ function Songs() {
       </div>
       <div>
         {songs.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-0">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-0">
             {songs.map((e, i) => (
               <TrackCard key={i} item={e} />
             ))}
