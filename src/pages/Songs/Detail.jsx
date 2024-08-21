@@ -42,21 +42,22 @@ function SongDetail() {
       });
   };
 
-  const getPrediction = async (feat) => {
-    console.log(track);
+  const getPrediction = () => {
     const data = {
       year: track.album.release_date.split("-")[0],
-      duration: feat.duration_ms,
-      key: feat.key,
-      loudness: feat.loudness,
-      mode: feat.mode,
-      tempo: feat.tempo,
-      signature: feat.time_signature,
+      duration: features.duration_ms,
+      key: features.key,
+      loudness: features.loudness,
+      mode: features.mode,
+      tempo: features.tempo,
+      signature: features.time_signature,
     };
-    console.log(data);
-    // axios.post("http://localhost:8000/predict", data).then((res) => {
-    //   console.log(res.data);
-    // });
+    axios.post("http://localhost:8000/predict", data).then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+        console.error(err)
+    })
   };
 
   useEffect(() => {
@@ -91,7 +92,9 @@ function SongDetail() {
           </a>
         </div>
       </div>
-      <div className="my-20 flex justify-center">
+      <div className="my-20 flex flex-col items-center">
+        <h1 className="text-4xl font-semibold tracking-widest mb-4 text-gray-400">HIT OR MISS?</h1>
+        <button onClick={getPrediction} className="text-2xl bg-[#ff4a01] p-2 w-60 rounded-full">Predict Now</button>
       </div>
     </div>
   );
