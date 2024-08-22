@@ -27,7 +27,11 @@ function MainLayout() {
               <img
                 src="/1png.png"
                 width={180}
-                style={{ filter: "grayscale(100%)", minWidth: "100px", paddingLeft: "4px" }}
+                style={{
+                  filter: "grayscale(100%)",
+                  minWidth: "100px",
+                  paddingLeft: "4px",
+                }}
               />
             </div>
           </li>
@@ -49,8 +53,25 @@ function MainLayout() {
       <main>
         <Outlet />
       </main>
-      <footer className="bg-zinc-800 flex flex-col items-center">
-        Footer Info
+      <footer className="bg-zinc-800 px-20 py-10 grid grid-cols-3 gap-4">
+        <div>
+          <h1 className="text-xl">Contact</h1>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+        </div>
+        <div>
+          <h1 className="text-xl">Info</h1>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+        </div>
+        <div>
+          <h1 className="text-xl">Me</h1>
+          <h2 className="text-gray-400 text-base">XXXXX</h2>
+          {/* <img src="/Home3.png" /> */}
+        </div>
       </footer>
     </div>
   );

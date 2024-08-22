@@ -8,9 +8,9 @@
   font-weight: 400;
   font-style: normal;
 
-  /* padding: 20px; */
   background-color: #161616;
   color: white;
+  overflow-x: hidden;
 }
 
 header {
