@@ -109,7 +109,9 @@ function SongDetail() {
       {prediction.prediction ? (
         <div className="flex justify-center">
           <div className="bg-zinc-800 p-6 rounded-xl shadow-zinc-700 shadow-sm">
-            <div className="bg-[#ff4a01] w-96 h-48 rounded-t-full relative">
+            <div className="w-96 h-48 rounded-t-full relative" style={{
+                backgroundImage: "conic-gradient(from 90deg, at 50% 100%, #ff4a01, transparent)"
+            }}>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-zinc-800 w-72 h-36 rounded-t-full flex justify-center items-end text-6xl">
                 {(prediction.prediction * 100).toFixed(0)}%
               </div>
