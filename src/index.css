@@ -8,15 +8,17 @@
   font-weight: 400;
   font-style: normal;
 
-  background-color: #161616;
+  background-color: #27272A;
   color: white;
   overflow-x: hidden;
 }
 
 header {
+    background-color: #161616;
     padding: 20px;
 }
 
 main {
+    background-color: #161616;
     padding: 20px;
 }

@@ -1,13 +1,14 @@
 import { Outlet } from "react-router-dom";
 import ButtonNav from "../components/Layout/Button";
 import { useLocation } from "react-router-dom";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function MainLayout() {
   const location = useLocation();
 
   return (
     <div>
-      <header className="flex justify-center mb-2 sm:mb-20 mt-2">
+      <header className="flex justify-center pb-8 sm:pb-20 pt-8">
         <ul className="flex justify-center items-center h-14 sm:border-solid sm:border-white sm:border-2 sm:rounded-full max-w-3xl">
           <li>
             <ButtonNav active={location.pathname === "/"} link={""}>
@@ -53,24 +54,21 @@ function MainLayout() {
       <main>
         <Outlet />
       </main>
-      <footer className="bg-zinc-800 px-20 py-10 grid grid-cols-3 gap-4">
-        <div>
-          <h1 className="text-xl">Contact</h1>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
+      <footer className="bg-zinc-800 px-20 py-6 grid grid-cols-2">
+        <div className="flex items-center">
+          <img src="/Home3.png" className="w-20" />
+          <div className="ml-4">
+            <h5>Luis Enrique Menéndez</h5>
+            <h5 className="text-gray-400">lmenendez@unis.edu.gt</h5>
+          </div>
         </div>
-        <div>
-          <h1 className="text-xl">Info</h1>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
-        </div>
-        <div>
-          <h1 className="text-xl">Me</h1>
-          <h2 className="text-gray-400 text-base">XXXXX</h2>
-          {/* <img src="/Home3.png" /> */}
+        <div className="flex items-center justify-end">
+          <a href="https://www.linkedin.com/in/luis-enrique-menendez-figueroa-6953a925b/">
+            <FaLinkedin size={26} />
+          </a>
+          <a href="https://github.com/wuiquique" className="ml-2">
+            <FaGithub size={26} />
+          </a>
         </div>
       </footer>
     </div>

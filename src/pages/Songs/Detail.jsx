@@ -132,7 +132,7 @@ function SongDetail() {
               </h1>
               <button
                 onClick={getPrediction}
-                className="text-2xl bg-[#ff4a01] p-2 w-60 rounded-full"
+                className="text-2xl bg-[#ff4a01] p-2 w-60 rounded-full hover:bg-[#ff672b]"
               >
                 Predict Now
               </button>
