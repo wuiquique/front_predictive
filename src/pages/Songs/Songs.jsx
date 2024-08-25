@@ -51,7 +51,7 @@ function Songs() {
             ))}
           </div>
         ) : (
-          <NoResults />
+          <NoResults root="songs" />
         )}
       </div>
     </div>
