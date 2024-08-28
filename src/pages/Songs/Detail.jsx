@@ -85,7 +85,7 @@ function SongDetail() {
           className="w-[160px] md:w-[320px] aspect-square object-cover"
         />
         <div className="flex flex-col justify-center ms-4">
-          <h1 className="text-4xl md:text-8xl font-extrabold max-w-3xl">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-extrabold max-w-3xl">
             {track.name}
           </h1>
           <h2 className="mt-2 text-xl md:text-2xl text-gray-400">
@@ -107,15 +107,17 @@ function SongDetail() {
       <div className="bg-zinc-800 w-full h-1 my-10"></div>
 
       {prediction.prediction ? (
-        <div className="flex justify-center">
-          <div className="bg-zinc-800 p-6 rounded-xl shadow-zinc-700 shadow-sm">
-            <div className="w-96 h-48 rounded-t-full relative" style={{
-                backgroundImage: "conic-gradient(from 90deg, at 50% 100%, #ff4a01, transparent)"
-            }}>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-zinc-800 w-72 h-36 rounded-t-full flex justify-center items-end text-6xl">
-                {(prediction.prediction * 100).toFixed(0)}%
-              </div>
-            </div>
+        <div className="flex flex-col">
+          <div
+            className="bg-[#ff4a01] h-10 relative rounded-tr-3xl"
+            style={{
+              width: `${(prediction.prediction * 100).toFixed(0)}%`,
+            }}
+          ></div>
+          <div className="flex justify-center text-[180px] sm:text-[200px] md:text-[300px] font-extrabold text-white -my-12 sm:-my-14 md:-my-20">{(prediction.prediction * 100).toFixed(0)}%</div>
+          <div className="grid grid-cols-2 mt-10">
+            <div>A</div>
+            <div>A</div>
           </div>
         </div>
       ) : (
