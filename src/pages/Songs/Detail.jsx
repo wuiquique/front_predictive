@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import "./Detail.css";
+import ShapValues from "../../components/ShapValues";
 
 function SongDetail() {
   const { id } = useParams();
@@ -26,7 +27,7 @@ function SongDetail() {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setTrack(res.data);
       });
   };
@@ -108,16 +109,42 @@ function SongDetail() {
 
       {prediction.prediction ? (
         <div className="flex flex-col">
+          <div className="flex justify-center mb-8">
+            <div className="py-1 px-10 bg-zinc-800 rounded-lg">
+              Popularity Prediction Score
+            </div>
+          </div>
           <div
             className="bg-[#ff4a01] h-10 relative rounded-tr-3xl"
             style={{
               width: `${(prediction.prediction * 100).toFixed(0)}%`,
             }}
           ></div>
-          <div className="flex justify-center text-[180px] sm:text-[200px] md:text-[300px] font-extrabold text-white -my-12 sm:-my-14 md:-my-20">{(prediction.prediction * 100).toFixed(0)}%</div>
-          <div className="grid grid-cols-2 mt-10">
-            <div>A</div>
-            <div>A</div>
+          <div className="flex justify-center text-[150px] sm:text-[200px] md:text-[300px] font-extrabold text-white -my-10 sm:-my-14 md:-my-20">
+            {(prediction.prediction * 100).toFixed(0)}%
+          </div>
+          <div className="flex justify-center mt-16">
+            <div className="py-1 px-10 bg-zinc-800 rounded-lg">
+              Influencing Factors
+            </div>
+          </div>
+          <div className="grid grid-cols-2 mt-4">
+            <ShapValues
+              items={Object.keys(prediction.shap_values).filter(
+                (key) => prediction.shap_values[key] > 0 && key !== "year"
+              )}
+              title="Positives"
+              shap={prediction.shap_values}
+              features={features}
+            />
+            <ShapValues
+              items={Object.keys(prediction.shap_values).filter(
+                (key) => prediction.shap_values[key] < 0 && key !== "year"
+              )}
+              title="Negatives"
+              shap={prediction.shap_values}
+              features={features}
+            />
           </div>
         </div>
       ) : (
