@@ -1,15 +1,15 @@
-function RelatedArtists({ items }) {
+function RecommendedTracks({ items }) {
   return (
     <div className="flex flex-col items-center">
-      <h4 className="text-xl md:text-2xl text-center">Collab Picks</h4>
+      <h4 className="text-xl md:text-2xl text-center ">Vibes in Sync</h4>
       {items.map((e, i) => (
         <div
           key={i}
           className="group p-2 pb-4 md:pb-2 hover:bg-zinc-800 w-full flex flex-col md:flex-row justify-center items-center rounded-md"
         >
           <img
-            alt="Artist img"
-            src={e.images?.[1]?.url}
+            alt="Song img"
+            src={e.album?.images?.[1]?.url}
             className="object-cover aspect-square w-full md:w-[100px]"
           />
           <h3 className="font-light text-lg text-center md:text-start md:text-xl lg:text-2xl text-gray-400 ms-2 text-ellipsis w-full overflow-x-hidden">
@@ -32,4 +32,4 @@ function RelatedArtists({ items }) {
   );
 }
 
-export default RelatedArtists;
+export default RecommendedTracks;

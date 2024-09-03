@@ -7,6 +7,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import "./Detail.css";
 import ShapValues from "../../components/ShapValues";
 import RelatedArtists from "../../components/RelatedArtists";
+import RecommendedTracks from "../../components/RecommendedTRacks";
 
 function SongDetail() {
   const { id } = useParams();
@@ -88,7 +89,7 @@ function SongDetail() {
         }
       )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setRelated(res.data);
       });
   };
@@ -107,7 +108,7 @@ function SongDetail() {
       )
       .then((res) => {
         setRecom(res.data);
-        // console.log(res.data);
+        console.log(res.data);
       });
   };
 
@@ -134,7 +135,7 @@ function SongDetail() {
             {formater.format(track?.artists?.map((a) => a?.name))}
           </h2>
           <a
-            className="mt-2 w-44 md:w-56 h-10 flex justify-center items-center bg-[#1db954] rounded-full text-sm md:text-base"
+            className="mt-2 w-44 md:w-56 h-10 flex justify-center items-center bg-[#1db954] rounded-full text-sm md:text-base hover:bg-[#138a3d]"
             href={track?.external_urls?.spotify}
           >
             <img
@@ -200,7 +201,7 @@ function SongDetail() {
                 </div>
                 <div className="grid grid-cols-2 mt-4">
                   <RelatedArtists items={related.artists} />
-                  <RelatedArtists items={related.artists} />
+                  <RecommendedTracks items={recom.tracks} />
                 </div>
               </div>
             ) : (

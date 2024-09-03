@@ -45,7 +45,7 @@ function MainLayout() {
             </ButtonNav>
           </li>
           <li>
-            <ButtonNav active={location.pathname === "/about"} link={"about"}>
+            <ButtonNav active={location.pathname === "/about"} link={"about"} disabled>
               About
             </ButtonNav>
           </li>

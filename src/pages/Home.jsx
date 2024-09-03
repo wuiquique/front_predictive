@@ -48,6 +48,9 @@ function Home() {
         </h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mx-20 mt-10">
+      <div className="flex justify-center items-center mt-4 md:mt-0">
+          <img src="/Home2.png" className="w-[350px]" />
+        </div>
         <div>
           <h4 className="text-2xl font-semibold flex items-center">
             <MdTrendingUp />
@@ -83,9 +86,6 @@ function Home() {
             you tap into new fan bases, amplify your audience, and boost your
             visibility in the music scene.
           </p>
-        </div>
-        <div className="flex justify-center items-center mt-4 md:mt-0">
-          <img src="/Home2.png" className="w-[350px]" />
         </div>
       </div>
       <div className="flex flex-col items-center mt-40 mb-10">
