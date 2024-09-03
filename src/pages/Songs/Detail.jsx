@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import "./Detail.css";
 import ShapValues from "../../components/ShapValues";
+import RelatedArtists from "../../components/RelatedArtists";
 
 function SongDetail() {
   const { id } = useParams();
@@ -13,6 +14,8 @@ function SongDetail() {
   const [track, setTrack] = useState({});
   const [features, setFeatures] = useState({});
   const [prediction, setPrediction] = useState({});
+  const [related, setRelated] = useState({});
+  const [recom, setRecom] = useState({});
   const [loading, setLoading] = useState(false);
 
   const formater = new Intl.ListFormat("en");
@@ -61,12 +64,50 @@ function SongDetail() {
     axios
       .post("http://localhost:8000/predict", data)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setPrediction(res.data);
         setLoading(false);
       })
       .catch((err) => {
         console.error(err);
+      });
+  };
+
+  const getRelated = async () => {
+    const token = await checkToken();
+
+    axios
+      .get(
+        "https://api.spotify.com/v1/artists/" +
+          track?.artists?.[0]?.id +
+          "/related-artists",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        setRelated(res.data);
+      });
+  };
+
+  const getRecommendations = async () => {
+    const token = await checkToken();
+
+    axios
+      .get(
+        "https://api.spotify.com/v1/recommendations?seed_tracks=" + track?.id,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((res) => {
+        setRecom(res.data);
+        // console.log(res.data);
       });
   };
 
@@ -145,6 +186,34 @@ function SongDetail() {
               shap={prediction.shap_values}
               features={features}
             />
+          </div>
+
+          <div className="bg-zinc-800 w-full h-1 my-10"></div>
+
+          <div className="mb-20 flex flex-col items-center">
+            {recom.tracks && related.artists ? (
+              <div className="w-full">
+                <div className="flex justify-center">
+                  <div className="py-1 px-10 bg-zinc-800 rounded-lg">
+                    Fresh Vibes & Dream Teams
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 mt-4">
+                  <RelatedArtists items={related.artists} />
+                  <RelatedArtists items={related.artists} />
+                </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  getRecommendations();
+                  getRelated();
+                }}
+                className="text-2xl bg-[#ff4a01] p-2 w-60 rounded-full hover:bg-[#ff672b]"
+              >
+                Vibe Boost
+              </button>
+            )}
           </div>
         </div>
       ) : (

@@ -11,7 +11,7 @@ function ShapValues({ title, items, shap, features }) {
 
   return (
     <div className="flex flex-col items-center">
-      <h4 className="text-2xl">{title}</h4>
+      <h4 className="text-4xl">{title}</h4>
       <div className="flex flex-col w-full px-0 sm:px-4 md:px-8 lg:px-16">
         {items.map((e, i) => (
           <div
@@ -64,7 +64,9 @@ function ShapValues({ title, items, shap, features }) {
                   : features[e]}
               </h5>
             </div>
-            <h6 className="text-center sm:text-start text-gray-400 sm:text-transparent transition-all duration-200 group-hover:sm:text-3xl group-hover:md:text-4xl group-hover:lg:text-5xl group-hover:text-gray-400">{(shap[e] * 100).toFixed(2)}%</h6>
+            <h6 className="text-end sm:text-start text-gray-400 sm:text-transparent transition-all duration-200 group-hover:sm:text-3xl group-hover:md:text-4xl group-hover:lg:text-5xl group-hover:text-gray-400">
+              {(shap[e] * 100).toFixed(2)}%
+            </h6>
           </div>
         ))}
       </div>
