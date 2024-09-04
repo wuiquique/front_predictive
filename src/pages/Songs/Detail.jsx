@@ -63,7 +63,7 @@ function SongDetail() {
       signature: features.time_signature,
     };
     axios
-      .post("http://localhost:8000/predict", data)
+      .post("https://bpapi.wuiquique.com/predict", data)
       .then((res) => {
         // console.log(res.data);
         setPrediction(res.data);
