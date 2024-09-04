@@ -47,8 +47,8 @@ function Home() {
           key features influence the popularity of your songs.
         </h3>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 mx-20 mt-10">
-      <div className="flex justify-center items-center mt-4 md:mt-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 mx-10 md:mx-20 mt-10">
+      <div className="flex justify-center items-center mb-6 md:mb-0">
           <img src="/Home2.png" className="w-[350px]" />
         </div>
         <div>
@@ -93,14 +93,13 @@ function Home() {
         <h1 className="text-center text-5xl font-bold tracking-wide mt-4">
           No Fees, Just Music
         </h1>
-        <h3 className="text-center text-gray-400 text-xl mt-4 mx-20">
+        <h3 className="text-center text-gray-400 text-xl mt-4 mx-10 md:mx-20">
           Enjoy the freedom to create and grow without worrying about costs.
           We’re excited to give you access to all our features for free, so you
           can dive straight into what really matters—your music.
         </h3>
       </div>
-      {/* Card with more details about free, similar to artists card */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-10 md:mx-20">
         <div className="group flex flex-col items-center hover:bg-zinc-800 p-6 rounded-md">
           <MdSecurity size={62} className="group-hover:text-[#ff4a01]" />
           <h4 className="text-2xl text-center mt-4">Your Data, Your Control</h4>
