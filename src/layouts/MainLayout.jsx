@@ -2,9 +2,11 @@ import { Outlet } from "react-router-dom";
 import ButtonNav from "../components/Layout/Button";
 import { useLocation } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function MainLayout() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -23,8 +25,8 @@ function MainLayout() {
               Artists
             </ButtonNav>
           </li>
-          <li className="relative">
-            <div className="mt-[-10px]">
+          <li className="relative cursor-pointer">
+            <a className="mt-[-10px]" onClick={() => navigate("/")}>
               <img
                 src="/1png.png"
                 width={180}
@@ -34,7 +36,7 @@ function MainLayout() {
                   paddingLeft: "4px",
                 }}
               />
-            </div>
+            </a>
           </li>
           <li>
             <ButtonNav

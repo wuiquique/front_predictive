@@ -48,7 +48,7 @@ function Home() {
         </h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mx-10 md:mx-20 mt-10">
-      <div className="flex justify-center items-center mb-6 md:mb-0">
+        <div className="flex justify-center items-center mb-6 md:mb-0">
           <img src="/Home2.png" className="w-[350px]" />
         </div>
         <div>
@@ -89,24 +89,25 @@ function Home() {
         </div>
       </div>
       <div className="flex flex-col items-center mt-40 mb-10">
-        <div className="py-1 px-10 bg-zinc-800 rounded-lg">Pricing</div>
+        <div className="py-1 px-10 bg-zinc-800 rounded-lg">
+          Unlock the Future
+        </div>
         <h1 className="text-center text-5xl font-bold tracking-wide mt-4">
-          No Fees, Just Music
+          How Our Predictive Model Works
         </h1>
         <h3 className="text-center text-gray-400 text-xl mt-4 mx-10 md:mx-20">
-          Enjoy the freedom to create and grow without worrying about costs.
-          We’re excited to give you access to all our features for free, so you
-          can dive straight into what really matters—your music.
+          Our predictive model analyzes key features of each song and provides a
+          popularity score, estimating its potential to become a hit.
         </h3>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-10 md:mx-20">
         <div className="group flex flex-col items-center hover:bg-zinc-800 p-6 rounded-md">
           <MdSecurity size={62} className="group-hover:text-[#ff4a01]" />
-          <h4 className="text-2xl text-center mt-4">Your Data, Your Control</h4>
+          <h4 className="text-2xl text-center mt-4">Data Consideration</h4>
           <h5 className="text-xl text-gray-400 text-center">
-            Your privacy is our priority. We don’t store any of your personal
-            data or track your activity. Use our tools with complete peace of
-            mind, knowing that your information stays with you.
+            We analyzed over 300k songs, focusing on the duration, key,
+            loudness, mode, tempo, and time signature. These variables provide
+            insight into the characteristics that influence popularity.
           </h5>
         </div>
         <div className="group flex flex-col items-center hover:bg-zinc-800 p-6 rounded-md">
@@ -114,11 +115,11 @@ function Home() {
             size={62}
             className="group-hover:text-[#ff4a01]"
           />
-          <h4 className="text-2xl text-center mt-4">No Account Needed</h4>
+          <h4 className="text-2xl text-center mt-4">Regression Analysis</h4>
           <h5 className="text-xl text-gray-400 text-center">
-            Get started instantly—no sign-up, no hassle. You don’t need an
-            account to use our features. Just dive in and start making music
-            without any barriers or commitments.
+            Using advanced regression techniques, the model evaluates the
+            relationship between these features and historical popularity trends
+            to predict future success.
           </h5>
         </div>
         <div className="group flex flex-col items-center hover:bg-zinc-800 p-6 rounded-md">
@@ -126,11 +127,13 @@ function Home() {
             size={62}
             className="group-hover:text-[#ff4a01]"
           />
-          <h4 className="text-2xl text-center mt-4">Ad-Free Experience</h4>
+          <h4 className="text-2xl text-center mt-4">
+            Popularity Potential Score
+          </h4>
           <h5 className="text-xl text-gray-400 text-center">
-            Focus on your creativity without distractions. Our platform is
-            completely ad-free, so you can enjoy an uninterrupted and seamless
-            music-making experience from start to finish.
+            The output is a popularity prediction score ranging from 0 to 1,
+            indicating how likely it is that the song will become popular based
+            on the analyzed factors.
           </h5>
         </div>
       </div>

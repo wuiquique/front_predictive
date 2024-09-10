@@ -5,6 +5,7 @@ import axios from "axios";
 import { checkToken } from "../../utils/auth";
 import NoResults from "../../components/NoResults";
 import ArtistCard from "../../components/ArtistCard";
+import { Form } from "react-router-dom";
 
 function Artists() {
   const [query, setQuery] = useState("");
@@ -29,7 +30,7 @@ function Artists() {
           }
         )
         .then((res) => {
-          console.log(res.data);
+        //   console.log(res.data);
           setArtists(res.data.artists.items);
         });
     }
@@ -37,7 +38,7 @@ function Artists() {
 
   return (
     <div>
-      <div className="flex justify-center items-center">
+      <Form className="flex justify-center items-center">
         <div className="w-3/5 me-8">
           <SearchControl
             placeholder="Artist"
@@ -46,7 +47,7 @@ function Artists() {
           />
         </div>
         <SearchBoton handleSearch={searchArtists} />
-      </div>
+      </Form>
       <div>
         {artists.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-0">

@@ -5,6 +5,7 @@ import { checkToken } from "../../utils/auth";
 import axios from "axios";
 import NoResults from "../../components/NoResults";
 import TrackCard from "../../components/TrackCard";
+import { Form } from "react-router-dom";
 
 function Songs() {
   const [query, setQuery] = useState("");
@@ -37,12 +38,12 @@ function Songs() {
 
   return (
     <div>
-      <div className="flex justify-center items-center">
+      <Form className="flex justify-center items-center">
         <div className="w-3/5 me-8">
           <SearchControl placeholder="Song" query={query} setQuery={setQuery} />
         </div>
         <SearchBoton handleSearch={searchSongs} />
-      </div>
+      </Form>
       <div>
         {songs.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-0">

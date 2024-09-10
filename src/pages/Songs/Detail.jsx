@@ -64,6 +64,7 @@ function SongDetail() {
     };
     axios
       .post("https://bpapi.wuiquique.com/predict", data)
+    // .post("http://localhost:8000/predict", data)
       .then((res) => {
         // console.log(res.data);
         setPrediction(res.data);
